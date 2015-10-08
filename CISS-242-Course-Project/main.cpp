@@ -107,7 +107,6 @@ char addCD(vector<Collection> &o){
     cout << "Please enter the CD Name: ";
     getline(cin, cN);
     do{
-        
         cout << "Please enter the Song Name: ";
         getline(cin, title);
         sT.push_back(title);
@@ -152,12 +151,20 @@ char removeCD(vector<Collection> &o){
 }
 
 char updateCD(vector<Collection> &o){
+    string a;
+    string cN;
+    string title;
+    
+    vector<string>sT;
+    vector<double>sL;
+    
     char cont = 'n';
     char next = 'n';
     int edit = 0;
+    double length = 0;
     
     do{
-        cout << "Please select the CD to be removed:" << endl;
+        cout << "Please select the CD to be edited:" << endl;
         for (int i = 0; i < o.size(); i++) {
             cout << "\t" << (i+1) << ". " << o[i].getArtist() << " - " << o[i].getCdName() << endl;
         }
@@ -168,7 +175,28 @@ char updateCD(vector<Collection> &o){
             return cont;
         }
         edit--;
-
+        cout << "Please enter the Artist Name: ";
+        cin.ignore(256,'\n');           //an enter command kept getting stuck in the buffer, this fixed it.
+        getline(cin, a);
+        o[edit].setArtist(a);
+        cout << "Please enter the CD Name: ";
+        getline(cin, cN);
+        o[edit].setCdName(cN);
+        o[edit].clearVectors();
+        do{
+            cout << "Please enter the Song Name: ";
+            getline(cin, title);
+            sT.push_back(title);
+            cout << "Please enter the Song Length: ";
+            cin >> length;
+            sL.push_back(length);
+            cout << "Add another song? ";
+            cin >> next;
+            cin.ignore(256,'\n');       //an enter command kept getting stuck in the buffer, this fixed it.
+        }while (next == 'y' || next == 'Y');
+        
+        o[edit].setVectors(sT, sL);
+        
         cout << "Would you like to edit another? (Y/N) ";
         cin >> next;
     } while (next == 'y' || next == 'Y');
