@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B64F89691BC3564C002392AA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B64F89681BC3564C002392AA /* main.cpp */; };
+		B64F89711BC3586D002392AA /* Collection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B64F896F1BC3586D002392AA /* Collection.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		B64F89651BC3564C002392AA /* CISS-242-Course-Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CISS-242-Course-Project"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64F89681BC3564C002392AA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B64F896F1BC3586D002392AA /* Collection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collection.cpp; sourceTree = "<group>"; };
+		B64F89701BC3586D002392AA /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				B64F89681BC3564C002392AA /* main.cpp */,
+				B64F896F1BC3586D002392AA /* Collection.cpp */,
+				B64F89701BC3586D002392AA /* Collection.h */,
 			);
 			path = "CISS-242-Course-Project";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B64F89691BC3564C002392AA /* main.cpp in Sources */,
+				B64F89711BC3586D002392AA /* Collection.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
