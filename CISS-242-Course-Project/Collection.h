@@ -31,8 +31,9 @@ class Collection{
         void setArtist(string a);
         void setCdName(string cN);
         void setCdLength();
-        void setSongTitles(vector<string> sT);
-        void setSongLength(vector<double> sL);
+        void setVectors(vector<string> sT, vector<double> sL);
+    
+        void clearVectors();
         
         string getArtist();
         string getCdName();

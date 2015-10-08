@@ -39,10 +39,12 @@ void Collection::setCdLength(){
         cdLength += songLength[i];
     }
 }
-void Collection::setSongTitles(vector<string> sT){
-    
+void Collection::clearVectors(){
+    songTitle.erase(songTitle.begin(),songTitle.end());
 }
-void Collection::setSongLength(vector<double> sL){
+void Collection::setVectors(vector<string> sT, vector<double> sL){
+    songTitle = sT;
+    songLength = sL;
     
 }
 
