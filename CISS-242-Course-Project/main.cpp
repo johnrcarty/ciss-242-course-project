@@ -127,8 +127,13 @@ char addCD(vector<Collection> &o){
         cout << "Please enter the Song Name: ";
         getline(cin, title);
         sT.push_back(title);
-        cout << "Please enter the Song Length: ";
-        cin >> length;
+        do{
+            cout << "Please enter the Song Length: ";
+            cin >> length;
+            if (length < 0) {
+                cout << "Please enter a number greater than 0!" << endl;
+            }
+        }while (length < 0);
         sL.push_back(length);
         cout << "Add another song? ";
         cin >> next;
@@ -150,16 +155,21 @@ char removeCD(vector<Collection> &o){
     int remove = 0;
     
     do{
-        cout << "Please select the CD to be removed:" << endl;
-        for (int i = 0; i < o.size(); i++) {
-            cout << "\t" << (i+1) << ". " << o[i].getArtist() << " - " << o[i].getCdName() << endl;
-        }
-        cout << "Which number would you like to remove? Press 0 to go back to menu. ";
-        cin >> remove;
-        if (!remove) {
-            cont = 'y';
-            return cont;
-        }
+        //Ask the user which CD they want to remove and validate
+        do{
+            cout << "Please select the CD to be removed:" << endl;
+            for (int i = 0; i < o.size(); i++) {
+                cout << "\t" << (i+1) << ". " << o[i].getArtist() << " - " << o[i].getCdName() << endl;
+            }
+            cout << "Which number would you like to remove? Press 0 to go back to menu. ";
+            cin >> remove;
+            if (!remove) {
+                cont = 'y';
+                return cont;
+            } else if (remove > o.size()){
+                cout << "Please enter a valid number!" << endl;
+            }
+        } while (remove > o.size());
         o.erase(o.begin()+(remove - 1));
         cout << "Would you like to remove another? (Y/N) ";
         cin >> next;
@@ -184,16 +194,22 @@ char updateCD(vector<Collection> &o){
     double length = 0;
     
     do{
-        cout << "Please select the CD to be edited:" << endl;
-        for (int i = 0; i < o.size(); i++) {
-            cout << "\t" << (i+1) << ". " << o[i].getArtist() << " - " << o[i].getCdName() << endl;
-        }
-        cout << "Which number would you like to edit? Press 0 to go back to menu. ";
-        cin >> edit;
-        if (!edit) {
-            cont = 'y';
-            return cont;
-        }
+        //Get user input on which CD to edit and validate
+        do{
+            cout << "Please select the CD to be edited:" << endl;
+            for (int i = 0; i < o.size(); i++) {
+                cout << "\t" << (i+1) << ". " << o[i].getArtist() << " - " << o[i].getCdName() << endl;
+            }
+            cout << "Which number would you like to edit? Press 0 to go back to menu. ";
+            cin >> edit;
+            if (!edit) {
+                cont = 'y';
+                return cont;
+            }else if (edit > o.size()){
+                cout << "Please enter a valid number!" << endl;
+            }
+        }while(edit > o.size());
+        
         edit--;
         cout << "Please enter the Artist Name: ";
         cin.ignore(256,'\n');           //an enter command kept getting stuck in the buffer, this fixed it.
@@ -207,8 +223,13 @@ char updateCD(vector<Collection> &o){
             cout << "Please enter the Song Name: ";
             getline(cin, title);
             sT.push_back(title);
-            cout << "Please enter the Song Length: ";
-            cin >> length;
+            do{
+                cout << "Please enter the Song Length: ";
+                cin >> length;
+                if (length < 0) {
+                    cout << "Please enter a number greater than 0!" << endl;
+                }
+            }while (length < 0);
             sL.push_back(length);
             cout << "Add another song? ";
             cin >> next;
