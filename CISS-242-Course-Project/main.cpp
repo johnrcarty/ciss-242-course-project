@@ -3,7 +3,8 @@
  CD Collection
  CISS 242-B
  
- <description>
+ <description>  This program will have the user input CDs from their collection
+                then allow them to ouput the list, remove a CD, or edit a CD.
  
  <author> John Carty
  <date> 7 - Oct - 2015
@@ -23,12 +24,14 @@ char updateCD(vector<Collection> &);
 
 int main() {
     
+    //Initialize the a vector of the Collection Class
     vector<Collection> CDs;
     
     int choice = 0;
     char cont = 'y';
     
     do{
+        //switch for the menu
         cout << "Please select from the following:" << endl;
         cout << "\t 1. Show All CDs" << endl;
         cout << "\t 2. Add a CD" << endl;
@@ -41,15 +44,19 @@ int main() {
         
         switch (choice) {
             case 1:
+                //Option 1 - Output all CDs
                 cont = cdOutput(CDs);
                 break;
             case 2:
+                //Option 2 - Add a CD
                 cont = addCD(CDs);
                 break;
             case 3:
+                //Option 3 -  Remove a CD
                 cont = removeCD(CDs);
                 break;
             case 4:
+                //Option 4 - Update a CD
                 cont = updateCD(CDs);
                 break;
                 
@@ -63,17 +70,25 @@ int main() {
     return 0;
 }
 
+//Output the CDs in table format
 char cdOutput(vector<Collection> &o){
     char cont;
     
+    //Table Header
     cout << setw(15) << left << "Artist" << setw(15) << "CD Name" << setw(5) << "CD Length" << setw(15) << right << "Song Title" << setw(15) << "Song Length" << endl;
     for (int i = 0; i < o.size(); i++) {
+        
+        //populate local vector for song titles and lengths
         vector<string> sT = o[i].getSongTitles();
         vector<double> sL = o[i].getSongLength();
+        
+        //output data for each cd
         cout << left << setw(15) << o[i].getArtist();
         cout << setw(15) << o[i].getCdName();
         o[i].setCdLength();
         cout << setw(5) << o[i].getCdLength() << right << " min";
+        
+        //for loop to output songs and their length - lines after the first one only have song title/length
         for (int j = 0; j < sT.size(); j++) {
             if (j==0) {
                 cout << setw(15) << right << sT[j] << setw(10) << sL[j] << " min" << endl;
@@ -83,12 +98,14 @@ char cdOutput(vector<Collection> &o){
         }
     }
     
-    
+    //Ask for user input to return to main menu, or exit program
     cout << "Press 'Y' to return to main menu, any other key to exit: ";
     cin >> cont;
     return cont;
 }
 
+
+//Add a CD to the CDs vector
 char addCD(vector<Collection> &o){
     string a;
     string cN;
@@ -125,6 +142,8 @@ char addCD(vector<Collection> &o){
     return cont;
 }
 
+
+//Remove a CD from the vector
 char removeCD(vector<Collection> &o){
     char cont = 'n';
     char next = 'n';
@@ -150,6 +169,7 @@ char removeCD(vector<Collection> &o){
     return cont;
 }
 
+//Edit all fields for a selected element in the CD vector
 char updateCD(vector<Collection> &o){
     string a;
     string cN;

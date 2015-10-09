@@ -1,10 +1,16 @@
-//
-//  Collection.cpp
-//  CISS-242-Course-Project
-//
-//  Created by John Carty on 10/5/15.
-//  Copyright © 2015 John Carty. All rights reserved.
-//
+/******************************************************************************
+ Week 8 - Course Project
+ CD Collection
+ CISS 242-B
+ 
+ <description>  Constructors, accessor functions and mutators for the
+                Collection Class.
+ 
+ <author> John Carty
+ <date> 7 - Oct - 2015
+ <revision> NONE
+ 
+ ******************************************************************************/
 
 #include "Collection.h"
 
